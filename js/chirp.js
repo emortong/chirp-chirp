@@ -7,8 +7,8 @@ function chirp(n){
 
 }
 
-// $(document).ready(function(){
-//   $("#result").html(chirp(3));
-// });
+$(document).ready(function(){
+  $("#result").html(chirp(3));
+});
 
 console.log(chirp(3))

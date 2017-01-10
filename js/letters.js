@@ -1,5 +1,5 @@
 var sample_text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod \
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo \
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse \
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non \
@@ -15,8 +15,28 @@ var counter = {
   "y" : 0,  "z" : 0
 }
 
-function countLetters(counter, sample_text){
-  // FIX ME
+function countLetters(counter, sample_text, num){
+  sample_text = sample_text.split(' ');
+
+  if(sample_text.length === 1) {
+    return counter;
+  }
+
+  let wordToCount = sample_text[sample_text.length -1];
+  wordToCount = wordToCount.split('');
+
+  for(var i = 0; i < wordToCount.length; i++) {
+    if(counter.hasOwnProperty(wordToCount[i])) {
+      counter[wordToCount[i]]++
+      console.log(counter);
+    }
+  }
+
+  sample_text.pop();
+  sample_text = sample_text.join(' ')
+
+  return countLetters(counter, sample_text)
+
 }
 
 $(document).ready(function(){
